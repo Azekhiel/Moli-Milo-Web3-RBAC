@@ -23,26 +23,43 @@ The security layers include:
 ## Repository Structure
 Below is the high-level structure of the repository:
 
-/
-|-- backend/                 # Go backend source code
-|   |-- blockchain/          # Blockchain interaction logic
-|   |-- config/              # Configuration and constants
-|   |-- helpers/             # Utility functions and policies
-|   |-- middleware/          # Authentication and 5-layer verification logic
-|   |-- main.go              # Backend entry point
-|   |-- client.go            # Test client for backend API
-|-- chaindata/               # Geth local blockchain data and keystores
-|-- smart-contracts/         # Solidity smart contracts and Hardhat environment
-|   |-- contracts/           # AuditableRBAC.sol and others
-|   |-- scripts/             # Deployment and setup scripts
-|   |-- test/                # Smart contract test files
-|-- attach.bat               # Script to attach Geth console
-|-- buat-akun.bat            # Script to create a new Geth account
-|-- init.bat                 # Script to initialize the genesis block
-|-- run-node.bat             # Script to start the Geth node
-|-- genesis-poa.json         # Genesis file for the PoA network
+```text
+.
+├── backend/                      # Go backend source code
+│   ├── main.go                   # Backend entry point
+│   ├── go.mod
+│   ├── blockchain/               # Blockchain interaction logic
+│   ├── middleware/               # Authentication & 5-layer verification
+│   ├── helpers/                  # Utility & policy logic
+│   └── config/                   # Configuration & constants
+│
+├── frontend/                     # Next.js frontend
+│   ├── pages/
+│   ├── styles/
+│   ├── public/
+│   └── package.json
+│
+├── smart-contracts/              # Solidity & Hardhat environment
+│   ├── contracts/                # AuditableRBAC.sol
+│   ├── scripts/                  # Deployment & role setup scripts
+│   ├── test/                     # Smart contract tests
+│   ├── hardhat.config.js
+│   └── package.json
+│
+├── chaindata/                    # Geth PoA blockchain data
+│   ├── geth/
+│   └── keystore/
+│
+├── genesis-poa.json              # PoA genesis configuration
+│
+├── run-node.bat                  # Start Geth node
+├── init.bat                      # Initialize genesis block
+├── attach.bat                    # Attach to Geth console
+├── buat-akun.bat                 # Create new Geth account
+├── README.md
+└── .gitignore
 
-## Complete Tutorial: How to Run the Project
+## How to Run the Project
 
 ### Prerequisites
 * Node.js (v16 or higher)
