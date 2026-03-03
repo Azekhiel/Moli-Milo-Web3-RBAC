@@ -1,0 +1,30 @@
+const fs = require('fs');
+const path = require('path');
+const { ethers } = require('ethers');
+
+async function main() {
+  // 1. Ganti dengan password  (dari password.txt)
+  const password = "admin-tes123"; 
+
+  // 2. Ganti dengan nama file keystore Anda
+  const keystoreFileName = "UTC--2025-11-05T19-54-52.512614900Z--153a5212b0ea63239021410dfa864c373a254f2c";
+  const keystorePath = path.join(__dirname, '..', 'chaindata', 'keystore', keystoreFileName);
+
+  try {
+    console.log(`Membaca file keystore dari: ${keystorePath}`);
+    const keystoreJson = fs.readFileSync(keystorePath, 'utf8');
+
+    console.log("Mendekripsi file dengan password...");
+    const wallet = await ethers.Wallet.fromEncryptedJson(keystoreJson, password);
+
+    console.log("\nBERHASIL!");
+    console.log("Alamat Anda:", wallet.address);
+    console.log("PRIVATE KEY ANDA (JANGAN BAGIKAN!):");
+    console.log(wallet.privateKey);
+
+  } catch (err) {
+    console.error("\nGAGAL:", err.message);
+  }
+}
+
+main();
