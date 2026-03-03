@@ -58,6 +58,7 @@ Below is the high-level structure of the repository:
 ├── buat-akun.bat                 # Create new Geth account
 ├── README.md
 └── .gitignore
+```
 
 ## How to Run the Project
 
